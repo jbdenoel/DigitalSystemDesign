@@ -44,11 +44,11 @@ begin
     res_mul_sg <= r2_sg * r1_sg;
     
     -- nand
-    res_nand <= register2 nand "11111" & register1; -- TODO: change, there is no neutral element
+    res_nand <= register2 nand "11111" & register1;
     --res_nand <= register2(register2'high downto register1'high+1) & register2(register1'high) nand register1
     
     -- nor
-    res_nor <= register2 nor "00000" & register1; -- TODO: change, there is no neutral element
+    res_nor <= register2 nor "00000" & register1;
     --res_nor <= register2(register2'high downto register1'high+1) & register2(register1'high) nor register1
     
     -- shift-right arithmetic
@@ -73,10 +73,7 @@ begin
                 register1 <= (others => '0');
             elsif en_r1 = '1' then
                 -- 2's complement conversion
-                if value(value'high) = '1' then
-                    register1 <= value_2c;
-                else register1 <= value;
-                end if;
+                register1 <= value_2c;
             end if;
         end if;
     end process;
