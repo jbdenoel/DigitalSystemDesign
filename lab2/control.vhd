@@ -50,7 +50,7 @@ begin
             
         when cycle3 => 
             nextstate <= finish;
-            enables <= "001100000000";
+            enables <= "000100000000";
             selectors <= "XXXX1";
             
         when finish =>

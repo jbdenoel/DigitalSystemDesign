@@ -7,7 +7,7 @@ entity circuito is
     p1, p2, p3, p4 : in std_logic_vector(7 downto 0);
     w1, w2, w3, w4 : in std_logic_vector(7 downto 0);
     done : out std_logic;
-    res : out std_logic_vector(16 downto 0)
+    res : out std_logic_vector(17 downto 0)
     );
 end circuito;
 
@@ -28,7 +28,7 @@ architecture Behavioral of circuito is
         w1, w2, w3, w4 : in std_logic_vector(7 downto 0);
         e1, e2, e3, e4, e5, e6, e7, e8, e9, e10, e11, e12 : in std_logic;
         s1, s2, s3, s4, s5 : in std_logic;
-        res : out std_logic_vector(16 downto 0));
+        res : out std_logic_vector(17 downto 0));
   end component;
 
   signal enables : std_logic_vector(11 downto 0);
