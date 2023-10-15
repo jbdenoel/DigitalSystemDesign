@@ -13,6 +13,7 @@ entity datapath is
     );
 end datapath;
 
+
 architecture Behavioral of datapath is
     signal rp1, rp2, rp3, rp4 : std_logic_vector(8 downto 0); -- input storage (additional bit for sign)
     signal rw1, rw2, rw3, rw4 : std_logic_vector(7 downto 0); -- input storage
@@ -62,6 +63,9 @@ begin
     mux5 <= signed("00" & r2_temp) when (s5 = '0' and r2_temp(r2_temp'high) = '0') else -- padding
             signed("11" & r2_temp) when (s5 = '0' and r2_temp(r2_temp'high) = '1') else -- padding
             r3;
+            
+    -- output
+    res <= std_logic_vector(r4);
             
     -- register 1
     process(clk)
@@ -206,8 +210,5 @@ begin
             end if;
         end if;
     end process;
-     
-    -- output
-    res <= std_logic_vector(r4);
 
 end Behavioral;

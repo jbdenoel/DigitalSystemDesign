@@ -32,30 +32,32 @@ begin
     case currstate is
     
         when init => 
-            if (rst = '0') then 
-                nextstate <= cycle1;
-                enables <= "000000110011";
-                selectors <= "XXXXX";
-            end if;
+            nextstate <= cycle1;
+            enables <= "000000110011";
+            selectors <= "XXXXX";
+            done <= '0';
             
         when cycle1 => 
             nextstate <= cycle2; 
             enables <= "110011001100";
             selectors <= "0000X";
+            done <= '0';
             
         when cycle2 => 
             nextstate <= cycle3;
             enables <= "111000000000";
             selectors <= "11110";
-            
+            done <= '0';
+           
         when cycle3 => 
             nextstate <= finish;
             enables <= "000100000000";
             selectors <= "XXXX1";
+            done <= '0';
             
         when finish =>
             enables <= "000000000000";
-            selectors <= "00000";
+            selectors <= "XXXXX";
             done <= '1';
            
     end case;

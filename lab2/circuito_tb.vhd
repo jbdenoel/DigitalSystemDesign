@@ -20,11 +20,11 @@ architecture Behavioral of circuito_tb is
 
    --Inputs
    signal clk : std_logic := '0';
-   signal rst : std_logic := '0';
+   signal rst : std_logic := '1';
    
    ----------------- USER INPUT HERE ----------------------
-   signal p1 : integer range 0 to 255 := 255;
-   signal p2 : integer range 0 to 255 := 255;
+   signal p1 : integer range 0 to 255 := 0;
+   signal p2 : integer range 0 to 255 := 0;
    signal p3 : integer range 0 to 255:= 255;
    signal p4 : integer range 0 to 255 := 255;
    signal w1 : integer range -128 to 127 := -128;
@@ -39,7 +39,7 @@ architecture Behavioral of circuito_tb is
    signal res : std_logic_vector(17 downto 0);
 
    -- Clock period definitions
-   constant clk_period : time := 10 ns;
+   constant clk_period : time := 7 ns;
  
 begin
 
@@ -75,12 +75,11 @@ begin
    stim_proc: process
    begin		
       -- hold reset state for 100 ns.
-      --wait for 100 ns;	
-      --wait for clk_period*10;
+      wait for 100 ns;	
+      wait for clk_period*10;
       -- insert stimulus here 
       -- note that input signals should never change at the positive edge of the clock
-	  rst <= '1',
-			 '0' after 20 ns;
+	  rst <= '0';
       wait;
    end process;
 end Behavioral;
