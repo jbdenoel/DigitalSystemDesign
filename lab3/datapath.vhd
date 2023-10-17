@@ -94,7 +94,7 @@ begin
    if rising_edge(clk) then
    -- rst is needed?
     if rst = '1' then
-      im_row <= (others => '0');
+      w1_4 <= (others => '0');
     elsif en_ima = '1' then
       w1_4 <= std_logic_vector(w1_RAM(to_integer(unsigned(w1_addr))));
     end if;
@@ -107,7 +107,7 @@ begin
    if rising_edge(clk) then
    -- rst is needed?
     if rst = '1' then
-      im_row <= (others => '0');
+      w2_4 <= (others => '0');
     elsif en_ima = '1' then
       w2_4 <= std_logic_vector(w2_RAM(to_integer(unsigned(w2_addr))));
     end if;
